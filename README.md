@@ -51,14 +51,11 @@ Your team is given this CrabFood project for 10,000 CrabCoins (currency of Crabb
 </details>
 
 ## Usage
-1. Download this repository in a zip file by clicking [here](https://github.com/Gtindi/CrabFood/archive/master.zip) or execute this from the terminal:
+1. Download this repository in a zip file by clicking [here](https://github.com/Gtindi/Restaurant_Ordering_Application/archive/main.zip) or execute this from the terminal:
 ```
-git clone https://github.com/y33-j3T/CrabFood.git
+git clone https://github.com/Gtindi/Restaurant_Ordering_Application.git
 ```
 2. Open your IDE.
 3. Open the project with your IDE.
 4. Build and run. 
-
-## Contributing
-Please refer to [CONTRIBUTE.md](./CONTRIBUTE.md) for details. :heart_eyes:
 
