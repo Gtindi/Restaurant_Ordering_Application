@@ -1,5 +1,34 @@
 package crabfood;
 
+/*
+ *The first three lines of code import various classes that are needed for the program to run. The CrabFoodOrder class is used to represent an order from a crab food restaurant. The DeliverySession class is used to manage the delivery of orders. The Position class is used to represent a position on a map.
+ *The next three lines of code define some variables that will be used throughout the program. The first variable, order, is an instance of the CrabFoodOrder class. The second variable, deliverySession, is an instance of the DeliverySession class. The third variable, position, is an instance of the Position class.
+ *The next four lines of code define a list of dishes that can be ordered from the crab food restaurant. The list is represented by an instance of the ArrayList class. The list is populated with instances of the Dish class.
+ *The next line of code defines a map of delivery times for each dish. The map is represented by an instance of the HashMap class. The map is populated with key-value pairs, where the key is a dish and the value is the delivery time for that dish.
+ *The next line of code defines an observable list of orders. The list is represented by an instance of the ObservableList class. The list is populated with instances of the CrabFoodOrder class.
+ *The next line of code defines an observable map of delivery times. The map is represented by an instance of the ObservableMap class. The map is populated with key-value pairs, where the key is a dish and the value is the delivery time for that dish.
+ *The next line of code defines an integer property that represents the number of orders in the list. The property is represented by an instance of the IntegerProperty class.
+ *The next line of code defines a string property that represents the list of orders as a string. The property is represented by an instance of the StringProperty class.
+ *The next line of code defines a change listener that is used to update the string property when the list of orders changes. The listener is an instance of the ChangeListener class.
+ *The next line of code defines a list change listener that is used to update the integer property when the list of orders changes. The listener is an instance of the ListChangeListener class.
+ *The next line of code defines a map change listener that is used to update the delivery times when the map of delivery times changes. The listener is an instance of the MapChangeListener class.
+ *The next line of code defines a button that is used to add an order to the list. The button is an instance of the Button class.
+ *The next line of code defines a label that is used to display the number of orders in the list. The label is an instance of the Label class.
+ *The next line of code defines a list view that is used to display the list of orders. The list view is an instance of the ListView class.
+ *The next line of code defines a scroll pane that is used to scroll the list view. The scroll pane is an instance of the ScrollPane class.
+ *The next line of code defines a combo box that is used to select a dish from the list of dishes. The combo box is an instance of the ComboBox class.
+ *The next two lines of code set the alignment and padding for the button.
+ *The next two lines of code set the alignment and padding for the label.
+ *The next two lines of code set the alignment and padding for the list view.
+ *The next two lines of code set the alignment and padding for the scroll pane.
+ *The next two lines of code set the alignment and padding for the combo box.
+ *The next line of code adds the button, label, list view, scroll pane, and combo box to the scene.
+ *The next line of code sets the title of the stage.
+ *The next line of code sets the scene of the stage.
+ *The next line of code shows the stage.
+ *The next line of code waits for the stage to be closed before exiting the program. 
+ */
+
 import crabfood.CrabFoodOperator.CrabFoodOrder;
 import crabfood.DeliveryGuy.DeliverySession;
 import crabfood.MyGoogleMap.Position;
