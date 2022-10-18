@@ -1,5 +1,6 @@
 package crabfood;
 
+//Describes the imports below
 /*
  *The first three lines of code import various classes that are needed for the program to run. The CrabFoodOrder class is used to represent an order from a crab food restaurant. The DeliverySession class is used to manage the delivery of orders. The Position class is used to represent a position on a map.
  *The next three lines of code define some variables that will be used throughout the program. The first variable, order, is an instance of the CrabFoodOrder class. The second variable, deliverySession, is an instance of the DeliverySession class. The third variable, position, is an instance of the Position class.
@@ -28,7 +29,6 @@ package crabfood;
  *The next line of code shows the stage.
  *The next line of code waits for the stage to be closed before exiting the program. 
  */
-
 import crabfood.CrabFoodOperator.CrabFoodOrder;
 import crabfood.DeliveryGuy.DeliverySession;
 import crabfood.MyGoogleMap.Position;
@@ -80,15 +80,57 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+/* Describes the function and code below.
+ * The first line of code creates a public class called Main that extends the Application class. 
+ * This means that the Main class inherits all the functionality of the Application class.
+ * The second and third lines of code create IntegerProperty variables called stageHeight and stageWidth. 
+ * These variables hold the height and width of the stage, respectively.
+ * The fourth line of code sets the value of the stageHeight variable to 828. 
+ * This is the height of the stage in pixels.
+ * The fifth line of code sets the value of the stageWidth variable to 1500. 
+ * This is the width of the stage in pixels.
+ */
 public class Main extends Application {
 
     IntegerProperty stageHeight = new SimpleIntegerProperty(828);
     IntegerProperty stageWidth = new SimpleIntegerProperty(1500);
 
+    /* Describes the function below
+     *public: This is an access modifier, which specifies who can access a certain class, method, or variable. 
+     *static: This means that the method can be called without creating an instance of the class. 
+     *void: This specifies that the method does not return a value. 
+     *main: This is the name of the method. 
+     *String[]: This specifies that the method takes in an array of strings as an argument. 
+     *launch: This calls the launch method, which starts the JavaFX application.
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    
+    /*Describes the codes below.
+     *This code creates a new SimulatedTime object and assigns it to the clock variable. This SimulatedTime object will be used to track the current time in the simulation.
+     *Next, a new CrabFoodOperator object is created and assigned to the operator variable. This CrabFoodOperator object will be used to manage the crab food orders in the simulation.
+     *The closeTime variable is initialized to "21:20", which represents the closing time for the crab food restaurant.
+     *Finally, the code creates several Scene objects. These Scene objects will be used to represent the different screens (or "scenes") in the simulation.
+     *The txtTimeStamp Text object is used to display the current time on the menu scene.
+     *The tableOS TableView object is used to display the status of all outstanding orders on the menu scene.
+     *The cfOrderList ObservableList is used to store the data that is displayed in the tableOS TableView.
+     *The txtareaRestaurantName TextArea object is used to display the name of the restaurant that is being edited on the edit restaurant scene.
+     *The obsListRestaurant ObservableList is used to store the names of all the restaurants in the simulation. This list is displayed on the edit restaurant scene.
+     *The resToEdit StringProperty is used to store the name of the restaurant that is currently being edited. This property is bound to the txtareaRestaurantName TextArea object.
+     *The gridRestaurantLoc GridPane object is used to display the locations of the restaurants on the edit restaurant scene.
+     *The obsListDishes ObservableList is used to store the names of all the dishes in the simulation. This list is displayed on the edit dish scene.
+     *The dishToEdit StringProperty is used to store the name of the dish that is currently being edited. This property is bound to the txtareaDishName TextArea object.
+     *The listDishes ListView object is used to display the list of dishes on the edit dish scene.
+     *The txtareaDishName TextArea object is used to display the name of the dish that is being edited on the edit dish scene.
+     *The spinnerDishPrepTime Spinner object is used to display and edit the prep time of the dish that is being edited on the edit dish scene.
+     *The flagAddRes boolean variable is used to track whether a new restaurant is being added or an existing restaurant is being edited.
+     *The flagAddDish boolean variable is used to track whether a new dish is being added or an existing dish is being edited.
+     *The btnSC Button object is used to simulate the arrival of a customer on the simulate customer scene.
+     *The txtOrderTime Text object is used to display the order time of the customer on the simulate customer scene.
+     *The gridMap GridPane object is used to display the map of the restaurant on the view map scene.
+     */
     // make clock
     public volatile static SimulatedTime clock = new SimulatedTime();
 
@@ -154,7 +196,18 @@ public class Main extends Application {
 
     // Grid area for view map
     GridPane gridMap = new GridPane();
-
+    
+    /*Describe the function below.
+ *The start function is used to start the primaryStage. 
+ *The thread timeThread is used to create a new thread. 
+ *The updater is used to update the stage. 
+ *The if statement is used to check if the clock is equal to 00:00. 
+ *The CrabFoodOperator is used to get the process and set it to an empty string. 
+ *The CrabFoodOperator is used to append the string "A new day has started!" to the process. 
+ *The cfOrderList is used to clear the status table. The logHeader is used to create a new log section. 
+ *The btnSC is used to enable the simulate customer button. The CrabFoodOperator is used to get the totalCrabFoodOrder and set it to 0. 
+ *The CrabFoodOperator is used to clear the allPresetCrabFoodOrders. The CrabFoodOperator is used to read the allPresetCrabFoodOrders.
+ */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Thread timeThread = new Thread(new Runnable() {
@@ -450,6 +503,15 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /* Describe and explain the function below.
+     * This code creates a scene for the CrabFoodOperator to manage the restaurants, delivery, view order log, and view map. 
+     * The first four lines create buttons for the CrabFoodOperator to manage the restaurants, delivery, view order log, and view map. 
+     * The next four lines set the maximum size for the buttons. 
+     * The next four lines set an action for each button. The first button sets the scene to the scene for managing restaurants. The second button sets the scene to the scene for managing delivery. The third button sets the scene to the scene for viewing the order log. The fourth button sets the scene to the scene for viewing the map. 
+     * The next four lines create a grid for the map. 
+     * The next line adds the tiles to the map. 
+     * The next line colors the tiles grey. 
+     */
     private void makeSceneMenu(Stage primaryStage) {
         // Manage Restaurants, Manage Delivery, View Order Log
         Button btnMR = new Button("Manage Restaurants");
@@ -560,6 +622,12 @@ public class Main extends Application {
         sceneMenu = new Scene(layoutMenu, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the function below.
+     * The code below creates a button that, when clicked, will allow the user to edit a selected restaurant. It also sets up the scene for the edit restaurant page, including the text field for the restaurant name and the position of the restaurant.
+     * The code first creates a list of all the restaurants that the user can choose from. It then checks if the list of restaurants is empty. If it is not, it adds all the restaurants to the list.
+     * Next, it creates a button labelled "Edit". When this button is clicked, it will take the user to the edit restaurant page.
+     * On the edit restaurant page, the text field for the restaurant name will be populated with the name of the restaurant that was selected. The position of the restaurant will also be displayed.
+     */
     private void makeSceneMR(Stage primaryStage) {
         // Restaurant List
         ListView listRestaurant = new ListView(obsListRestaurant);
@@ -783,6 +851,15 @@ public class Main extends Application {
         sceneMR = new Scene(layoutMR, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the functions below.
+     * The code above creates a scene for the "Make Delivery" menu. This scene allows the user to specify the number of delivery men for the restaurant. 
+     * The first line creates a label for the number of delivery men. 
+     * The second line creates a spinner for the number of delivery men. The spinner has a range of 1 to 100, and the default value is 1. 
+     * The third line adds the spinner to a horizontal box layout. 
+     * The fourth line creates a button labeled "Done". 
+     * The fifth line sets the maximum size for the button. 
+     * The sixth line adds an event handler to the button. When the button is clicked, the event handler clears the list of all delivery guys, then loops through the specified number of delivery men and adds them to the list. Finally, it updates the partner restaurants, the master map, and the list of all delivery guys.
+     */
     private void makeSceneMD(Stage primaryStage) {
         // Number of Delivery Man
         Label labelNumDeliveryMan = new Label("Number of Delivery Man : ");
@@ -850,7 +927,16 @@ public class Main extends Application {
         sceneMD = new Scene(layoutMD, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the function below.
+     * The method above is used to create a scene for the Order Log of the application. 
+     * The scene consists of a TextArea which displays the order log and a Button which leads the user back to the main menu. 
+     */
     private void makeSceneVOL(Stage primaryStage) {
+    	/*
+    	 * This part of the code creates the TextArea where the order log will be displayed. 
+    	 * The TextArea is set to be uneditable and the font is set to be Monospace. 
+    	 * The order log is binded to the TextArea so that any changes to the order log will be displayed on the TextArea. 
+    	 */
         // Order Log
         TextArea txtareaOrderLog = new TextArea();
         txtareaOrderLog.setEditable(false);
@@ -863,17 +949,22 @@ public class Main extends Application {
                 txtareaOrderLog.deselect();
             }
         });
-
+        
+        //This part of the code creates the Button which leads the user back to the main menu. 
         // Button
         Button btnVOL_BACK = new Button("Back");
         btnVOL_BACK.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         btnVOL_BACK.setOnAction(fn -> primaryStage.setScene(sceneMenu));
 
-        // #
+        // This part of the code creates a HBox which contains the Button created earlier. The HBox is aligned at the center. 
         HBox layoutVOLBottom = new HBox(btnVOL_BACK);
         layoutVOLBottom.setAlignment(Pos.CENTER);
 
-        // ##
+        /*
+         * This part of the code creates a GridPane which contains the TextArea and the HBox created earlier. 
+         * The TextArea and HBox are set to be at column 0, row 0 and column 0, row 1 respectively. 
+         * There is a vertical gap of 10 set for the GridPane and padding of 10 is set for all sides.  
+         */
         GridPane layoutVOL = new GridPane();
         GridPane.setVgrow(txtareaOrderLog, Priority.ALWAYS);
         GridPane.setHgrow(txtareaOrderLog, Priority.ALWAYS);
@@ -882,10 +973,18 @@ public class Main extends Application {
         layoutVOL.setVgap(10);
         layoutVOL.setPadding(new Insets(10, 10, 10, 10));
         layoutVOL.getChildren().addAll(txtareaOrderLog, layoutVOLBottom);
-
+        
+        //This line of code creates the scene for the Order Log using the GridPane created earlier. The scene is set to be the same width and height as the stage.
         sceneVOL = new Scene(layoutVOL, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the functions below.
+     * The first line creates a new Button object with the text "Back". The second line sets the maximum size of the button to the maximum possible value, so that it will fill up the entire space allocated to it. The third line sets an onAction event handler that will change the scene back to the menu scene when the button is clicked.
+     * The next section creates a HBox layout containing the button. The HBox is then centered using the setAlignment method.
+     * Next, a ScrollPane object is created to hold the gridMap. The ScrollPane is set to always grow in both the vertical and horizontal directions.
+     * Finally, a GridPane is created to hold the ScrollPane and the HBox. The ScrollPane is added to the first row and column, and the HBox is added to the second row and column. The layout is given some vertical spacing between elements, and padding is added to all sides.
+     * The last line creates a new Scene object with the layout as the root element, and the scene is set to the stage.
+     */
     private void makeSceneVM(Stage primaryStage) {
         // Button
         Button btnVM_BACK = new Button("Back");
@@ -911,6 +1010,12 @@ public class Main extends Application {
         sceneVM = new Scene(layoutVM, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the functions below.
+     * The code creates a table that displays the ordered dish and its quantity. 
+     * The table is made up of two columns, one for the dish and one for the quantity. 
+     * The table is populated by an observable map that is populated by the user selecting a dish and its quantity. 
+     * The code also includes a button that allows the user to remove a dish from the table. When the button is clicked, the dish that is currently selected in the table is removed from the map.
+     */
     private void makeSceneSC(Stage primaryStage) {
         // Ordered dish & its quantity to be put into tableSC
         ObservableMap<String, Integer> mapSC = FXCollections.observableHashMap();
@@ -1131,6 +1236,13 @@ public class Main extends Application {
         sceneSC = new Scene(layoutSC, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the functions below.
+     * The first section of code creates a label for the restaurant name, followed by a text area for the user to input the name of the restaurant. 
+     * The second section creates a label for the restaurant location, followed by a grid pane for the user to input the location of the restaurant. 
+     * The third section creates a label for the dishes served at the restaurant, followed by a button to edit the dishes. 
+     * The final section of code creates a grid pane to hold all of the elements, and sets the alignment of the labels.
+     * The makeSceneER() method is responsible for creating the scene for the Edit Restaurant page. This page allows the user to edit the name, location, and dishes served at a restaurant.
+     */
     private void makeSceneER(Stage primaryStage) {
         // Restaurant Name
         Label labelRestaurantName = new Label("Name : ");
@@ -1333,6 +1445,11 @@ public class Main extends Application {
         sceneER = new Scene(layoutER, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the functions below.
+     * This code creates a button that, when clicked, will delete the selected item from the list of dishes.
+     * The button has the text "Delete" and is set to the maximum size possible.
+     * When the button is clicked, it will check to see if there is a selected item in the list of dishes. If there is, it will delete that item.
+     */
     private void makeSceneEDs(Stage primaryStage) {
         // Buttons
         Button btnEDs_EDIT = new Button("Edit");
@@ -1451,6 +1568,14 @@ public class Main extends Application {
         sceneEDs = new Scene(layoutEDs, stageWidth.getValue(), stageHeight.getValue());
     }
 
+    /* Describes the functions below.
+     * The code above creates a scene for the "Edit Dish" window. 
+     * It includes a label for the dish name, a text area for the user to input the dish name, a label for the dish preparation time, and a spinner for the user to select the dish preparation time. 
+     * There is also a "Done" button to confirm the edits.
+     * When the "Done" button is clicked, the code checks to see if the text area for the dish name is empty. 
+     * If it is not empty, the code saves the edits and closes the window. 
+     * If it is empty, an error message is displayed.
+     */
     private void makeSceneED(Stage primaryStage) {
         // Dish Name
         Label labelDishName = new Label("Dish Name : ");
@@ -1570,7 +1695,14 @@ public class Main extends Application {
         layoutED.getChildren().addAll(layoutEDTop, layoutEDBottom);
         sceneED = new Scene(layoutED, stageWidth.getValue(), stageHeight.getValue());
     }
-
+    
+    /* Describes the functions below.
+     * The code creates a class called Tile, which inherits from the StackPane class. This class is used to represent each individual tile in the game. 
+     * The first two lines create a Rectangle object and a Text object. The Rectangle object represents the border of the tile, while the Text object represents the value of the tile. 
+     * The next two lines set the alignment of the tile to the center, and add the Rectangle and Text objects to the tile. 
+     * The setOnMouseClicked method sets an event handler for when the tile is clicked. This event handler will change the color of the tile depending on its current color. 
+     * The isBlue and isGrey methods are used to check the color of the tile. These methods will be used later in the code.
+     */
     private class Tile extends StackPane {
 
         Text text;
