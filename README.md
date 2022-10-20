@@ -58,4 +58,3 @@ git clone https://github.com/Gtindi/Restaurant_Ordering_Application.git
 2. Open your IDE.
 3. Open the project with your IDE.
 4. Build and run. 
-
